@@ -13,7 +13,7 @@ It converts long URLs into short, clean links (e.g., http://localhost/shortener)
 
 ## 📁 Project Structure
 
-- `shortener_clean/`
+- `shortener/`
   - `index.html`
   - `db.php`
   - `.htaccess`
