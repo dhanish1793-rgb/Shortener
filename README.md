@@ -1,33 +1,9 @@
 Short URL Generator (PHP + MySQL)
 
-A simple and clean URL shortener built with PHP, MySQL, and a lightweight HTML/JavaScript frontend.
-It converts long URLs into short, easy-to-share links like:
+A simple URL shortener built with PHP, MySQL, and a small HTML/JS frontend. It converts long URLs into short links using a 6-character code and redirects users automatically.
 
-http://localhost/shortener_clean/abc123
-
-✨ Features
-
-Generate short URLs (6-character codes)
-
-Clean short links using .htaccess rewrite rules
-
-Automatic redirection to the original URL
-
-Frontend form for quick URL shortening
-
-URL validation (prevents invalid/empty input)
-
-📁 Project Structure
-shortener_clean/
- ├─ index.html
- ├─ db.php
- ├─ .htaccess
- ├─ shortener.sql
- └─ api/
-      ├─ shorten.php
-      └─ redirect.php
-
-🛠 Requirements
+Setup Instructions
+1. Requirements
 
 XAMPP / WAMP / LAMP (Apache + MySQL)
 
@@ -35,78 +11,38 @@ PHP 7+
 
 MySQL or MariaDB
 
-🚀 Setup Instructions
-1. Place the project in your server
+2. Installation
 
-Copy the entire folder into:
+Copy the project folder into your server directory, for example:
 
 C:\xampp\htdocs\
 
 
-or the equivalent folder on your environment.
+Start Apache and MySQL in XAMPP.
 
-2. Start XAMPP
-
-Enable:
-
-Apache
-
-MySQL
-
-3. Create the database
-
-Go to:
-http://localhost/phpmyadmin
-
-Create a database named:
+Open phpMyAdmin and create a database named:
 
 shortener
 
 
-Import the file shortener.sql into this database.
+Import shortener.sql into the database.
 
-This will create a table:
+3. Run the App
 
-short_urls (id, code, long_url, created_at)
-
-4. Test the app
-
-Open:
+Open the frontend:
 
 http://localhost/shortener_clean/index.html
 
 
-Enter a URL → click Shorten → you’ll get a link like:
+Enter any long URL to generate a short link, such as:
 
 http://localhost/shortener_clean/A1b3Xy
 
-🔀 URL Rewriting
+4. How Redirection Works
 
-The .htaccess file handles clean URLs.
-It converts:
+The .htaccess file rewrites clean URLs (e.g., /A1b3Xy) to:
 
-/A1b3Xy
-
-
-into:
-
-/api/redirect.php?c=A1b3Xy
+/api/redirect.php?c=CODE
 
 
-No long query strings needed.
-
-📡 API Endpoints
-POST /api/shorten.php
-
-Request body:
-
-{
-  "url": "https://example.com"
-}
-
-
-Response:
-
-{
-  "shortUrl": "http://localhost/shortener_clean/A1b3Xy"
-}
+No query strings shown to the user.
