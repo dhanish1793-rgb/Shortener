@@ -1,9 +1,31 @@
 Short URL Generator (PHP + MySQL)
 
-A simple URL shortener built with PHP, MySQL, and a small HTML/JS frontend. It converts long URLs into short links using a 6-character code and redirects users automatically.
+A simple URL shortening application built using PHP, MySQL, and a lightweight HTML/JavaScript frontend.
+It converts long URLs into short, clean links (e.g., http://localhost/shortener_clean/abc123) and redirects users automatically.
 
-Setup Instructions
-1. Requirements
+🚀 Features
+
+Generates 6-character short codes
+
+Clean URLs using .htaccess rewrite rules
+
+Automatic redirection to the original URL
+
+Simple frontend for URL submission
+
+Basic URL validation
+
+📁 Project Structure
+shortener_clean/
+ ├─ index.html
+ ├─ db.php
+ ├─ .htaccess
+ ├─ shortener.sql
+ └─ api/
+      ├─ shorten.php
+      └─ redirect.php
+
+🛠 Requirements
 
 XAMPP / WAMP / LAMP (Apache + MySQL)
 
@@ -11,38 +33,46 @@ PHP 7+
 
 MySQL or MariaDB
 
-2. Installation
+⚙️ Setup Instructions
+1. Place the project
 
-Copy the project folder into your server directory, for example:
+Copy the entire folder into your server directory:
 
 C:\xampp\htdocs\
 
+2. Start server services
 
-Start Apache and MySQL in XAMPP.
+Enable:
 
-Open phpMyAdmin and create a database named:
+Apache
+
+MySQL
+
+3. Create the database
+
+Open phpMyAdmin:
+
+http://localhost/phpmyadmin
+
+
+Create a database:
 
 shortener
 
 
-Import shortener.sql into the database.
+Import the file shortener.sql.
 
-3. Run the App
+This creates table:
 
-Open the frontend:
+short_urls (id, code, long_url, created_at)
+
+4. Run the application
+
+Open:
 
 http://localhost/shortener_clean/index.html
 
 
-Enter any long URL to generate a short link, such as:
+Enter a URL → click Shorten → get a short URL like:
 
 http://localhost/shortener_clean/A1b3Xy
-
-4. How Redirection Works
-
-The .htaccess file rewrites clean URLs (e.g., /A1b3Xy) to:
-
-/api/redirect.php?c=CODE
-
-
-No query strings shown to the user.
