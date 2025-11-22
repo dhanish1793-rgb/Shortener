@@ -12,14 +12,15 @@ It converts long URLs into short, clean links (e.g., http://localhost/shortener)
 
 
 ## 📁 Project Structure
-shortener_clean/
- ├─ index.html
- ├─ db.php
- ├─ .htaccess
- ├─ shortener.sql
- └─ api/
-      ├─ shorten.php
-      └─ redirect.php
+
+- `shortener_clean/`
+  - `index.html`
+  - `db.php`
+  - `.htaccess`
+  - `shortener.sql`
+  - `api/`
+    - `shorten.php`
+    - `redirect.php`
 
 
 ## Requirements
